@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://bskbb0eymhkb6"]
+
+[ext_resource type="Texture2D" uid="uid://7nyfob36eopx" path="res://Art/Materials/64x64.png" id="1_pdywt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqwnx"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(640, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hit4"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(832, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11hbt"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(960, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g8be"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(320, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbrcm"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjnr8"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(320, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta4w0"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o041m"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbvn7"]
+atlas = ExtResource("1_pdywt")
+region = Rect2(64, 384, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2i6qd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqwnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hit4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11hbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g8be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbrcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjnr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta4w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o041m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbvn7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycsu0"]
+size = Vector2(64, 64)
+
+[node name="PickUp" type="Area2D" groups=["PickUp"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2i6qd")
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ycsu0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
