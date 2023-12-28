@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://dx3h6h2l8ib8g"]
+[gd_scene load_steps=4 format=3 uid="uid://dx3h6h2l8ib8g"]
+
+[ext_resource type="Texture2D" uid="uid://lpeu2n7uonfb" path="res://Art/Sprites/Piece (2).png" id="1_tfqdj"]
+[ext_resource type="FontFile" path="res://Art/Minecraft.ttf" id="2_t3mti"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ev0ry"]
+font = ExtResource("2_t3mti")
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -17,7 +23,19 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 0
 
-[node name="Coin" type="Label" parent="CanvasLayer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tfqdj")
+expand_mode = 3
+
+[node name="Coin" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = ": 66"
+label_settings = SubResource("LabelSettings_ev0ry")

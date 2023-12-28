@@ -11,11 +11,13 @@ func _ready():
 func _process(delta):
 	print(canCarry)
 	if $PickUpLabel.visible == true and Input.is_action_just_pressed("interact"):
-		canCarry = !canCarry
+		canCarry = true
 	
 	if canCarry == true:
+		$PickUpLabel.visible = false
 		$PickUpDetectArea.get_overlapping_areas()[0].position = global_position
-	
+	if $PickUpLabel.visible == false and Input.is_action_just_pressed("interact"):
+		canCarry = false
 func _physics_process(delta):
 	#directions, flip sprite
 	if Input.get_action_strength("left"):
