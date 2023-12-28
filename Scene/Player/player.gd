@@ -6,7 +6,7 @@ var canCarry = false
 var Carry = false
 
 #constant
-const SPEED = 5.0
+const SPEED = 10.0
 func _ready():
 	$PickUpLabel.visible = false
 
@@ -20,6 +20,7 @@ func _process(delta):
 	
 	if  Input.is_action_just_pressed("interact"):
 		Carry = false
+		Global.coin +=1
 	
 	if canCarry == true and Input.is_action_just_pressed("interact"):
 		Carry = true
