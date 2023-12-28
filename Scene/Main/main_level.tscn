@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://db7tnw8hyendc"]
+[gd_scene load_steps=11 format=3 uid="uid://db7tnw8hyendc"]
 
 [ext_resource type="Script" path="res://Scene/Main/main_level.gd" id="1_g1mfv"]
 [ext_resource type="Texture2D" uid="uid://dgbbji4hl20mr" path="res://Art/Sprites/14-TileSets/Terrain (32x32).png" id="1_jsdwy"]
@@ -1427,6 +1427,9 @@ physics_layer_0/collision_mask = 11
 sources/0 = SubResource("TileSetAtlasSource_23ygp")
 sources/1 = SubResource("TileSetAtlasSource_ir4ot")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7bg0"]
+size = Vector2(601, 552)
+
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_g1mfv")
 
@@ -1456,6 +1459,12 @@ scale = Vector2(3, 3)
 [node name="ItemList" type="Node2D" parent="."]
 
 [node name="Shop" type="Node2D" parent="."]
+
+[node name="Shop_Area" type="Area2D" parent="Shop"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop/Shop_Area"]
+position = Vector2(1070.5, 343)
+shape = SubResource("RectangleShape2D_h7bg0")
 
 [node name="marker" type="Node2D" parent="Shop"]
 
@@ -1495,3 +1504,6 @@ position = Vector2(1003, 374)
 
 [node name="spawnPoint12" type="Marker2D" parent="Shop/marker" groups=["spawnShopMat"]]
 position = Vector2(917, 374)
+
+[connection signal="area_exited" from="Shop/Shop_Area" to="." method="_on_shop_area_area_exited"]
+[connection signal="body_entered" from="Shop/Shop_Area" to="." method="_on_shop_area_body_entered"]
