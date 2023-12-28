@@ -6,7 +6,7 @@ var canCarry = false
 var Carry = false
 
 #constant
-const SPEED = 10.0
+const SPEED = 20.0
 func _ready():
 	$PickUpLabel.visible = false
 

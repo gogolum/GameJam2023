@@ -1,5 +1,6 @@
 extends Node2D
 
+var itemScene: PackedScene = preload("res://Scene/PickUp/pick_up.tscn")
 var objects_on_table = []
 @onready var area = $CraftingBenchArea
 var canCraft = false
@@ -42,9 +43,12 @@ func check_objects():
 func craft(primary, secondary, tersiary):
 	var num = 0
 	num = items[primary.itemLevel - 1][secondary.itemLevel - 1][tersiary.itemLevel - 1]
-	$CanCraft.text = str(num)
-	#print(primary, secondary, tersiary)
-	#print(primary.itemQuality - 1, secondary.itemQuality - 1, tersiary.itemQuality - 1 )
-			
-	
-		
+	var item = itemScene.instantiate()
+	item.ismat = false
+	item.frame_counter_item = num[0]
+	item.position = Vector2(200,200)
+	item.scale = Vector2(4, 4)
+	$"../ItemList".add_child(item)
+	primary.queue_free()
+	secondary.queue_free()
+	tersiary.queue_free()

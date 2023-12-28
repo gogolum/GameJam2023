@@ -39,5 +39,5 @@ expand_mode = 3
 
 [node name="Coin" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = ": 66"
+text = ": 500"
 label_settings = SubResource("LabelSettings_ev0ry")

@@ -12,5 +12,5 @@ func _process(delta):
 	pass
 
 func changeCoinValue():
-	coinLable.text = " " + str(Global.coin)
+	coinLable.text = " : " + str(Global.coin)
 	pass

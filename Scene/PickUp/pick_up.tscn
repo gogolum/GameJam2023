@@ -279,8 +279,12 @@ collision_layer = 10
 collision_mask = 9
 script = ExtResource("1_01j88")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="matSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2i6qd")
+
+[node name="itemSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2i6qd")
+animation = &"items"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ycsu0")
