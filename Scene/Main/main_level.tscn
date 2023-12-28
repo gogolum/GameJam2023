@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://db7tnw8hyendc"]
+[gd_scene load_steps=9 format=3 uid="uid://db7tnw8hyendc"]
 
 [ext_resource type="Texture2D" uid="uid://dgbbji4hl20mr" path="res://Art/Sprites/14-TileSets/Terrain (32x32).png" id="1_jsdwy"]
 [ext_resource type="PackedScene" uid="uid://tbiirjlkmisb" path="res://Scene/Player/player.tscn" id="2_oyxva"]
 [ext_resource type="Texture2D" uid="uid://jtcttfod6hjc" path="res://Art/Sprites/14-TileSets/Decorations (32x32).png" id="2_tt3ku"]
-[ext_resource type="PackedScene" uid="uid://bskbb0eymhkb6" path="res://Scene/PickUp/pick_up.tscn" id="4_u1rgs"]
 [ext_resource type="PackedScene" uid="uid://dx3h6h2l8ib8g" path="res://Scene/UI/ui.tscn" id="5_m0tf3"]
 [ext_resource type="PackedScene" uid="uid://bf5j02fbfyxq" path="res://Scene/CraftingBench/crafting_bench.tscn" id="6_2rng3"]
 
@@ -1451,17 +1450,5 @@ position = Vector2(312, 273)
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Entities/Player"]
-
-[node name="PickUp" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(468, 480)
-
-[node name="PickUp2" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(603, 380)
-
-[node name="PickUp3" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(184, 484)
-
-[node name="PickUp4" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(157, 347)
 
 [node name="UI" parent="." instance=ExtResource("5_m0tf3")]
