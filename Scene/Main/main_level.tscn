@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://db7tnw8hyendc"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="ItemList" type="Node2D" parent="."]
