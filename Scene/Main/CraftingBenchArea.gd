@@ -6,7 +6,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	pass
+	check_objects()
 	
 
 func check_objects():
@@ -21,5 +21,5 @@ func check_objects():
 			sec = elements
 		else :
 			ter = elements
-		
+	print(prim, sec, ter)
 		
