@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://di73pw8j36uwi"]
+[gd_scene load_steps=3 format=3 uid="uid://b4y24v27fmvm3"]
 
 [ext_resource type="FontFile" uid="uid://cqyiip1ldq5u1" path="res://Art/Minecraft.ttf" id="1_0qvxp"]
 [ext_resource type="Script" path="res://Scene/UI/popup.gd" id="1_jvo07"]
