@@ -196,7 +196,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyluw"]
-size = Vector2(20, 7)
+size = Vector2(20, 26)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pn4mb"]
 radius = 15.1327
@@ -221,7 +221,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_fyluw")
 metadata/_edit_lock_ = true
 
