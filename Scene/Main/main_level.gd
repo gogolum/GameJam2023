@@ -4,7 +4,7 @@ var matScene: PackedScene = preload("res://Scene/PickUp/pick_up.tscn")
 var inShop = false
 
 func _ready():
-	Global.coin = 50
+	Global.coin = 500
 	matShopSpawn()
 	
 

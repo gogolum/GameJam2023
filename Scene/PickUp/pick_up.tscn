@@ -274,9 +274,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycsu0"]
 size = Vector2(64, 64)
 
-[node name="PickUp" type="Area2D" groups=["PickUpGrp"]]
-collision_layer = 10
-collision_mask = 9
+[node name="PickUp" type="Area2D" groups=["itemGroup"]]
+collision_layer = 2
 script = ExtResource("1_01j88")
 
 [node name="matSprite2D" type="AnimatedSprite2D" parent="."]
