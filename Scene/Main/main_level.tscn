@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://db7tnw8hyendc"]
+[gd_scene load_steps=8 format=3 uid="uid://db7tnw8hyendc"]
 
 [ext_resource type="Texture2D" uid="uid://dgbbji4hl20mr" path="res://Art/Sprites/14-TileSets/Terrain (32x32).png" id="1_jsdwy"]
 [ext_resource type="PackedScene" uid="uid://tbiirjlkmisb" path="res://Scene/Player/player.tscn" id="2_oyxva"]
 [ext_resource type="Texture2D" uid="uid://jtcttfod6hjc" path="res://Art/Sprites/14-TileSets/Decorations (32x32).png" id="2_tt3ku"]
+[ext_resource type="PackedScene" uid="uid://bskbb0eymhkb6" path="res://Scene/PickUp/pick_up.tscn" id="4_u1rgs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23ygp"]
 texture = ExtResource("1_jsdwy")
@@ -1397,3 +1398,15 @@ position = Vector2(312, 273)
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Entities/Player"]
+
+[node name="PickUp" parent="." instance=ExtResource("4_u1rgs")]
+position = Vector2(484, 395)
+
+[node name="PickUp2" parent="." instance=ExtResource("4_u1rgs")]
+position = Vector2(545, 171)
+
+[node name="PickUp3" parent="." instance=ExtResource("4_u1rgs")]
+position = Vector2(207, 388)
+
+[node name="PickUp4" parent="." instance=ExtResource("4_u1rgs")]
+position = Vector2(157, 181)
