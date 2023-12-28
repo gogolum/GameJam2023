@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scene/UI/ui.gd" id="1_jcalw"]
 [ext_resource type="Texture2D" uid="uid://lpeu2n7uonfb" path="res://Art/Sprites/Piece (2).png" id="1_tfqdj"]
-[ext_resource type="FontFile" path="res://Art/Minecraft.ttf" id="2_t3mti"]
+[ext_resource type="FontFile" uid="uid://cqyiip1ldq5u1" path="res://Art/Minecraft.ttf" id="2_t3mti"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ev0ry"]
 font = ExtResource("2_t3mti")
