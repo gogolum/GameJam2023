@@ -12,13 +12,9 @@ func _process(delta):
 	print(canCarry)
 	if $PickUpLabel.visible == true and Input.is_action_just_pressed("interact"):
 		canCarry = !canCarry
-		#print("itemCollecté")
-		#print($PickUpDetectArea.get_overlapping_areas()[0].position)
-		#canCarry = true
 	
 	if canCarry == true:
-		for element in $PickUpDetectArea.get_overlapping_areas():
-			element.position = global_position
+		$PickUpDetectArea.get_overlapping_areas()[0].position = global_position
 	
 func _physics_process(delta):
 	#directions, flip sprite
@@ -41,7 +37,6 @@ func _physics_process(delta):
 func _on_pick_up_detect_area_area_entered(area):
 	if area.is_in_group("PickUpGrp") :
 		$PickUpLabel.visible = true
-	
 	
 	pass # Replace with function body.
 
