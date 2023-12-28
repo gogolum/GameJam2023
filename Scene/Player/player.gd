@@ -2,12 +2,25 @@ extends CharacterBody2D
 
 #onready variables
 @onready var animated_sprite = $AnimatedSprite2D
-
+var canCarry = false
 #constant
 const SPEED = 5.0
+func _ready():
+	$PickUpLabel.visible = false
 
+func _process(delta):
+	print(canCarry)
+	if $PickUpLabel.visible == true and Input.is_action_just_pressed("interact"):
+		canCarry = !canCarry
+		#print("itemCollecté")
+		#print($PickUpDetectArea.get_overlapping_areas()[0].position)
+		#canCarry = true
+	
+	if canCarry == true:
+		for element in $PickUpDetectArea.get_overlapping_areas():
+			element.position = global_position
+	
 func _physics_process(delta):
-
 	#directions, flip sprite
 	if Input.get_action_strength("left"):
 		position.x -= SPEED
@@ -21,3 +34,19 @@ func _physics_process(delta):
 		position.y += SPEED
 	
 	move_and_slide()
+
+
+
+
+func _on_pick_up_detect_area_area_entered(area):
+	if area.is_in_group("PickUpGrp") :
+		$PickUpLabel.visible = true
+	
+	
+	pass # Replace with function body.
+
+
+func _on_pick_up_detect_area_area_exited(area):
+	if area.is_in_group("PickUpGrp"):
+		$PickUpLabel.visible = false
+	pass # Replace with function body.
