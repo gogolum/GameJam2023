@@ -24,14 +24,13 @@ func check_objects():
 	var ter : Area2D
 	objects_on_table = area.get_overlapping_areas()
 	for element in objects_on_table:
-		print(element.itemType)
-		if element.itemType == 1 and prim == null:
+		if element.matType == 1 and prim == null:
 			prim = element
 			element.position = $PrimaryPick_Up.global_position
-		if element.itemType == 2 and sec == null:
+		if element.matType == 2 and sec == null:
 			sec = element
 			element.position = $SecondaryPick_Up.global_position
-		if element.itemType == 3 and ter == null:
+		if element.matType == 3 and ter == null:
 			ter = element
 			element.position = $TertiaryPick_Up.global_position
 			
@@ -42,10 +41,15 @@ func check_objects():
 		
 func craft(primary, secondary, tersiary):
 	var num = 0
-	num = items[primary.itemLevel - 1][secondary.itemLevel - 1][tersiary.itemLevel - 1]
+	num = items[primary.matLevel - 1][secondary.matLevel - 1][tersiary.matLevel - 1]
 	var item = itemScene.instantiate()
-	item.itemScore = ((primary + secondary * 2 + tersiary * 3)/6) * item.itemQuality
+	item.itemScore = ((primary.matLevel + secondary.matLevel * 2 + tersiary.matLevel * 3)/6) * ((secondary.matQuality  * tersiary.matQuality)/4)
 	item.ismat = false
+	#envoyer des infos pour les popUp
+	item.itemQuality = (secondary.matQuality  * tersiary.matQuality)/4
+	item.itemType = primary.matLevel
+	item.gemType = tersiary.matLevel
+	
 	item.frame_counter_item = num[0]
 	item.position = Vector2(200,200)
 	item.scale = Vector2(4, 4)

@@ -243,4 +243,3 @@ to collecte"
 label_settings = SubResource("LabelSettings_ihp7o")
 
 [connection signal="area_entered" from="PickUpDetectArea" to="." method="_on_pick_up_detect_area_area_entered"]
-[connection signal="area_exited" from="PickUpDetectArea" to="." method="_on_pick_up_detect_area_area_exited"]

@@ -15,12 +15,15 @@ func _process(delta):
 	if $PickUpDetectArea.get_overlapping_areas() and Carry == false:
 		canCarry = true
 		$PickUpLabel.visible = true
+		
 	else:
 		canCarry = false
 		$PickUpLabel.visible = false
 	
 	if  Input.is_action_just_pressed("interact"):
 		Carry = false
+		if canCarry:
+			$PickUpDetectArea.get_overlapping_areas()[0].scale = Vector2(1,1)
 	
 	if canCarry == true and Input.is_action_just_pressed("interact"):
 		Carry = true
@@ -31,6 +34,7 @@ func _process(delta):
 				Carry = false
 	if Carry:
 		$PickUpDetectArea.get_overlapping_areas()[0].position = global_position
+		$PickUpDetectArea.get_overlapping_areas()[0].scale = Vector2(0.8,0.8)
 		carried = $PickUpDetectArea.get_overlapping_areas()[0]
 		canCarry = false
 
@@ -51,3 +55,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+
+
+func _on_pick_up_detect_area_area_entered(area):
+	
+	if area.ismat == false:
+		area.popUpDisplay()
+	pass # Replace with function body.
