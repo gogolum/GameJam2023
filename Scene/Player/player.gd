@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 var canCarry = false
 var Carry = false
+var carried : Area2D
 
 #constant
 const SPEED = 20.0
@@ -20,16 +21,18 @@ func _process(delta):
 	
 	if  Input.is_action_just_pressed("interact"):
 		Carry = false
-		Global.coin +=1
 	
 	if canCarry == true and Input.is_action_just_pressed("interact"):
 		Carry = true
 	
 	if Carry:
+		if $PickUpDetectArea.get_overlapping_areas()[0].ismat:
+			if !$PickUpDetectArea.get_overlapping_areas()[0].isBought and $PickUpDetectArea.get_overlapping_areas()[0].mat_price > Global.coin:
+				Carry = false
+	if Carry:
 		$PickUpDetectArea.get_overlapping_areas()[0].position = global_position
+		carried = $PickUpDetectArea.get_overlapping_areas()[0]
 		canCarry = false
-
-
 
 
 func _physics_process(delta):
