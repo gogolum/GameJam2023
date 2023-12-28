@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bf5j02fbfyxq"]
 
-[ext_resource type="Script" path="res://Scene/Main/CraftingBenchArea.gd" id="1_xf8vj"]
+[ext_resource type="Script" path="res://Scene/CraftingBench/CraftingBenchArea.gd" id="1_7uo2d"]
 [ext_resource type="Texture2D" uid="uid://jtcttfod6hjc" path="res://Art/Sprites/14-TileSets/Decorations (32x32).png" id="2_2lc40"]
-[ext_resource type="FontFile" path="res://Art/Minecraft.ttf" id="3_rrvqa"]
+[ext_resource type="FontFile" uid="uid://cqyiip1ldq5u1" path="res://Art/Minecraft.ttf" id="3_rrvqa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o2l8"]
 texture = ExtResource("2_2lc40")
@@ -79,7 +79,7 @@ size = Vector2(110.75, 10)
 font = ExtResource("3_rrvqa")
 
 [node name="CraftingBench" type="Node2D"]
-script = ExtResource("1_xf8vj")
+script = ExtResource("1_7uo2d")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hbw8g")
