@@ -275,8 +275,7 @@ animations = [{
 size = Vector2(64, 64)
 
 [node name="PickUp" type="Area2D" groups=["PickUpGrp"]]
-collision_layer = 10
-collision_mask = 9
+collision_layer = 2
 script = ExtResource("1_01j88")
 
 [node name="matSprite2D" type="AnimatedSprite2D" parent="."]
