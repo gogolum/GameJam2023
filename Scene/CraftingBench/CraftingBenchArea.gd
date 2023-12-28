@@ -44,6 +44,7 @@ func craft(primary, secondary, tersiary):
 	var num = 0
 	num = items[primary.itemLevel - 1][secondary.itemLevel - 1][tersiary.itemLevel - 1]
 	var item = itemScene.instantiate()
+	item.itemScore = ((primary + secondary * 2 + tersiary * 3)/6) * item.itemQuality
 	item.ismat = false
 	item.frame_counter_item = num[0]
 	item.position = Vector2(200,200)

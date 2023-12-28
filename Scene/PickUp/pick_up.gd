@@ -13,6 +13,7 @@ var itemType : int
 var ismat = true
 var isBought = false
 var frame_counter_item : int
+var itemScore : int
 
 
 func _ready():
