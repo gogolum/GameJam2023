@@ -196,7 +196,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyluw"]
-size = Vector2(20, 26)
+size = Vector2(20, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pn4mb"]
 radius = 15.1327
@@ -221,10 +221,12 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_fyluw")
 metadata/_edit_lock_ = true
 
 [node name="PickUpDetectArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpDetectArea"]
 shape = SubResource("CircleShape2D_pn4mb")
