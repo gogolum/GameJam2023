@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bskbb0eymhkb6"]
+[gd_scene load_steps=14 format=3 uid="uid://bskbb0eymhkb6"]
 
+[ext_resource type="Script" path="res://Scene/PickUp/pick_up.gd" id="1_01j88"]
 [ext_resource type="Texture2D" uid="uid://7nyfob36eopx" path="res://Art/Materials/64x64.png" id="1_pdywt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqwnx"]
@@ -76,7 +77,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycsu0"]
 size = Vector2(64, 64)
 
-[node name="PickUp" type="Area2D" groups=["PickUp"]]
+[node name="PickUp" type="Area2D" groups=["PickUpGrp"]]
+script = ExtResource("1_01j88")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2i6qd")
@@ -86,3 +88,15 @@ frame = 3
 shape = SubResource("RectangleShape2D_ycsu0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="quality" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -46.0
+offset_right = 22.0
+offset_bottom = -23.0
+
+[node name="Name" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -70.0
+offset_right = 20.0
+offset_bottom = -47.0
