@@ -1451,7 +1451,7 @@ scale = Vector2(3, 3)
 [node name="Camera2D" type="Camera2D" parent="Entities/Player"]
 
 [node name="PickUp" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(484, 395)
+position = Vector2(487, 394)
 
 [node name="PickUp2" parent="." instance=ExtResource("4_u1rgs")]
 position = Vector2(545, 171)
