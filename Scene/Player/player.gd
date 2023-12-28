@@ -7,7 +7,11 @@ var Carry = false
 var carried : Area2D
 
 #constant
-const SPEED = 20.0
+var speed = 1400
+var acceleration = 1200
+var deceleration = 100
+var axis = Vector2.ZERO
+
 func _ready():
 	$PickUpLabel.visible = false
 
@@ -37,17 +41,13 @@ func _process(delta):
 
 func _physics_process(delta):
 	#directions, flip sprite
-	if Input.get_action_strength("left"):
-		position.x -= SPEED
-		transform.y * (-1)
-	if Input.get_action_strength("right"):
-		position.x += SPEED
-		transform.y * 1
-	if Input.get_action_strength("up"):
-		position.y -= SPEED
-	if Input.get_action_strength("down"):
-		position.y += SPEED
-	
+	axis.x = Input.get_action_strength("right")-Input.get_action_strength("left")
+	axis.y = Input.get_action_strength("down")-Input.get_action_strength("up")
+
+	axis = axis.normalized() * speed
+
+	velocity = velocity.lerp(axis, 0.1)
+
 	move_and_slide()
 
 

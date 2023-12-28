@@ -25,4 +25,10 @@ func _on_shop_area_area_exited(area):
 		if Global.coin > $Entities/Player.carried.mat_price and !$Entities/Player.carried.isBought:	
 			Global.coin -= $Entities/Player.carried.mat_price
 			$Entities/Player.carried.isBought = true
+
+func gen_opponent_advancement():
+	var advancement = [0,0,0,0,0,0,0]
+	for i in range(100):
+		advancement[randi() % 6] += 1
+	return advancement
 		
