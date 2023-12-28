@@ -275,13 +275,12 @@ animations = [{
 size = Vector2(64, 64)
 
 [node name="PickUp" type="Area2D" groups=["PickUpGrp"]]
-collision_layer = 2
+collision_layer = 10
+collision_mask = 9
 script = ExtResource("1_01j88")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_2i6qd")
-animation = &"items"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ycsu0")
