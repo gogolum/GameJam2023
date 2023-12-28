@@ -5,11 +5,12 @@ extends CharacterBody2D
 var canCarry = false
 var Carry = false
 var carried : Area2D
+var  changed_scale = false
 
 #constant
-var speed = 1400
-var acceleration = 1200
-var deceleration = 100
+var speed = 1000
+var acceleration = 800
+var deceleration = 200
 var axis = Vector2.ZERO
 
 func _ready():
@@ -43,11 +44,22 @@ func _physics_process(delta):
 	#directions, flip sprite
 	axis.x = Input.get_action_strength("right")-Input.get_action_strength("left")
 	axis.y = Input.get_action_strength("down")-Input.get_action_strength("up")
-
+		
 	axis = axis.normalized() * speed
 
 	velocity = velocity.lerp(axis, 0.1)
-
+	if abs(velocity.x) > 250 :
+		$AnimatedSprite2D/AnimationPlayer.play('Walk')
+	else:
+		$AnimatedSprite2D/AnimationPlayer.play('Idle')
+	if Input.is_action_pressed("left"):
+		if (!changed_scale):
+			scale.x=-3.0
+			changed_scale=true
+	elif Input.is_action_pressed("right"):
+		if (changed_scale):
+			scale.x=-3.0
+			changed_scale=false
 	move_and_slide()
 
 
