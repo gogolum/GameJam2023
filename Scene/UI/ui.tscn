@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx3h6h2l8ib8g"]
+[gd_scene load_steps=5 format=3 uid="uid://dx3h6h2l8ib8g"]
 
+[ext_resource type="Script" path="res://Scene/UI/ui.gd" id="1_jcalw"]
 [ext_resource type="Texture2D" uid="uid://lpeu2n7uonfb" path="res://Art/Sprites/Piece (2).png" id="1_tfqdj"]
-[ext_resource type="FontFile" path="res://Art/Minecraft.ttf" id="2_t3mti"]
+[ext_resource type="FontFile" uid="uid://cqyiip1ldq5u1" path="res://Art/Minecraft.ttf" id="2_t3mti"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ev0ry"]
 font = ExtResource("2_t3mti")
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jcalw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

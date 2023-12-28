@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://db7tnw8hyendc"]
 
+[ext_resource type="Script" path="res://Scene/Main/main_level.gd" id="1_g1mfv"]
 [ext_resource type="Texture2D" uid="uid://dgbbji4hl20mr" path="res://Art/Sprites/14-TileSets/Terrain (32x32).png" id="1_jsdwy"]
 [ext_resource type="PackedScene" uid="uid://tbiirjlkmisb" path="res://Scene/Player/player.tscn" id="2_oyxva"]
 [ext_resource type="Texture2D" uid="uid://jtcttfod6hjc" path="res://Art/Sprites/14-TileSets/Decorations (32x32).png" id="2_tt3ku"]
-[ext_resource type="PackedScene" uid="uid://bskbb0eymhkb6" path="res://Scene/PickUp/pick_up.tscn" id="4_u1rgs"]
 [ext_resource type="PackedScene" uid="uid://dx3h6h2l8ib8g" path="res://Scene/UI/ui.tscn" id="5_m0tf3"]
 [ext_resource type="PackedScene" uid="uid://bf5j02fbfyxq" path="res://Scene/CraftingBench/crafting_bench.tscn" id="6_2rng3"]
 
@@ -1428,8 +1428,10 @@ sources/0 = SubResource("TileSetAtlasSource_23ygp")
 sources/1 = SubResource("TileSetAtlasSource_ir4ot")
 
 [node name="MainLevel" type="Node2D"]
+script = ExtResource("1_g1mfv")
 
 [node name="Background" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="Background"]
 position = Vector2(0, 31)
@@ -1442,26 +1444,77 @@ layer_0/tile_data = PackedInt32Array(0, 131072, 10, 1, 196608, 10, 2, 262144, 10
 position = Vector2(186, 164)
 scale = Vector2(4, 4)
 
-[node name="ItemList" type="Node2D" parent="."]
-
 [node name="Entities" type="Node2D" parent="."]
 position = Vector2(312, 273)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="Entities" instance=ExtResource("2_oyxva")]
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Entities/Player"]
 
-[node name="PickUp" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(468, 480)
 
-[node name="PickUp2" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(603, 380)
+[node name="ItemList" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="PickUp3" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(184, 484)
+[node name="Shop" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="PickUp4" parent="." instance=ExtResource("4_u1rgs")]
-position = Vector2(157, 347)
+[node name="marqueur" type="Node2D" parent="Shop"]
+
+[node name="spawnItem" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1258, 151)
+
+[node name="spawnItem2" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1257, 343)
+
+[node name="spawnItem3" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1174, 537)
+
+[node name="spawnItem4" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1258, 536)
+
+[node name="spawnItem5" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1002, 343)
+
+[node name="spawnItem6" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(918, 343)
+
+[node name="spawnItem7" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1173, 343)
+
+[node name="spawnItem8" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(918, 536)
+
+[node name="spawnItem9" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1002, 536)
+
+[node name="spawnItem10" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1002, 152)
+
+[node name="spawnItem11" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(1174, 152)
+
+[node name="spawnItem12" type="Marker2D" parent="Shop/marqueur" groups=["spawnShopMat"]]
+position = Vector2(918, 151)
 
 [node name="UI" parent="." instance=ExtResource("5_m0tf3")]
+metadata/_edit_lock_ = true
+
+[node name="CraftingBench" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CraftingBench"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CraftingBench/StaticBody2D"]
+position = Vector2(383, 149)
+shape = SubResource("RectangleShape2D_8nubi")
+
+[node name="CraftingBenchArea" type="Area2D" parent="CraftingBench"]
+position = Vector2(386, 148)
+script = ExtResource("5_vptbv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CraftingBench/CraftingBenchArea"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_8nubi")
+
