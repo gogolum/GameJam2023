@@ -9,7 +9,6 @@ func _ready():
 	$PickUpLabel.visible = false
 
 func _process(delta):
-	print(canCarry)
 	if $PickUpLabel.visible == true and Input.is_action_just_pressed("interact"):
 		canCarry = !canCarry
 	
