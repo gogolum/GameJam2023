@@ -226,6 +226,7 @@ shape = SubResource("RectangleShape2D_fyluw")
 metadata/_edit_lock_ = true
 
 [node name="PickUpDetectArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpDetectArea"]
 shape = SubResource("CircleShape2D_pn4mb")
