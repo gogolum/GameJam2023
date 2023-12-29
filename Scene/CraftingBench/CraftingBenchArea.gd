@@ -43,13 +43,15 @@ func craft(primary, secondary, tersiary):
 	var num = 0
 	num = items[primary.matLevel - 1][secondary.matLevel - 1][tersiary.matLevel - 1]
 	var item = itemScene.instantiate()
-	item.itemScore = ((primary.matLevel + secondary.matLevel * 2 + tersiary.matLevel * 3)/6) * ((secondary.matQuality  * tersiary.matQuality)/4)
+	item.itemScore = ((primary.matLevel + secondary.matLevel * 2 + tersiary.matLevel * 3)/6) * ((secondary.matQuality  * tersiary.matQuality)/2)
+	#print(primary.matLevel, secondary.matLevel, tersiary.matLevel, secondary.matQuality, tersiary.matQuality)
 	item.ismat = false
+	item.name = primary.name + "_" + secondary.name + "_" + tersiary.name
 	#envoyer des infos pour les popUp
 	item.itemQuality = (secondary.matQuality  * tersiary.matQuality)/4
 	item.itemType = primary.matLevel
 	item.gemType = tersiary.matLevel
-	
+	print(item.itemScore)
 	item.frame_counter_item = num[0]
 	item.position = Vector2(200,200)
 	item.scale = Vector2(4, 4)
