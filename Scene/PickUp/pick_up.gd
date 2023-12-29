@@ -48,25 +48,6 @@ func _ready():
 	#$Name.text = name
 	#$quality.text = str(itemLevel) + "   " + str(itemQuality)
 
-func matpopUpDisplay():
-	var popUp = popUpScene.instantiate()
-	popUp.global_position.x += 8
-	popUp.scale = Vector2(2,2)
-	if matQuality >= 0 and matQuality <= 3:
-		popUp.Quality = "Mediocre"
-		popUp.QualityColor = "GREY"
-	elif matQuality > 3 and matQuality <= 6:
-		popUp.Quality = "Acceptable"
-		popUp.QualityColor = "GREEN"
-	elif matQuality > 6 and matQuality <= 9:
-		popUp.Quality = "Great"
-		popUp.QualityColor = "BLUE"
-	popUp.changeStat()
-	add_child(popUp) 
-	popUp.TypeLabel.visible = false
-	popUp.GemLabel.visible = false
-	popUp.PowerLabel.visible = false
-		
 func popUpDisplay():
 	var popUp = popUpScene.instantiate()
 	popUp.global_position.x += 8

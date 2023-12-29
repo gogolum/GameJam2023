@@ -78,6 +78,7 @@ TRY AGAIN
 "
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 725.0
 offset_top = 47.0
 offset_right = 1178.0
@@ -85,6 +86,7 @@ offset_bottom = 387.0
 texture = ExtResource("3_5gyns")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 388.0
 offset_top = -87.0
 offset_right = 466.0

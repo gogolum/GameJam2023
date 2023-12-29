@@ -8,6 +8,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Global.canRestart:
+		$VBoxContainer/RestartButon.visible = true
+	else: $VBoxContainer/RestartButon.visible = false
+	
 	if  fullScreenState == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if  fullScreenState == false:
@@ -32,4 +36,10 @@ func _on_tuto_buton_button_up():
 
 func _on_full_scree_button_pressed():
 	fullScreenState = !fullScreenState
+	pass # Replace with function body.
+
+
+func _on_restart_buton_pressed():
+	get_tree().change_scene_to_file("res://Scene/Main/main_level.tscn")
+	Global.canRestart
 	pass # Replace with function body.

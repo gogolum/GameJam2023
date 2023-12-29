@@ -4,13 +4,14 @@ var matScene: PackedScene = preload("res://Scene/PickUp/pick_up.tscn")
 var inShop = false
 func _ready():
 	#initialisation
-	Global.coin = 500
-	Global.coinIncrement = 0
-	Global.playerScore = 0
-	Global.adversaireScore = 0
-	Global.day = 0
-	Global.isNextDay = true
-	Global.tutoIsActive = false
+	Global.valueChange.emit()
+	if Global.canRestart == false:
+		Global.coin = 250 
+		Global.coinIncrement = 0
+		Global.playerScore = 0
+		Global.adversaireScore = 0
+		Global.day = 0
+		Global.isNextDay = true
 	matShopSpawn()
 	
 
@@ -35,20 +36,30 @@ func _process(delta):
 			$UI.zoomRendu(0,adversaireScoreDay,Global.day)
 		else:
 			$UI.zoomRendu(give_item($GiftBox.gift),adversaireScoreDay,Global.day)
-		sell_items()
+			
+		Global.coin -= give_item($GiftBox.gift)
 	
 	if Global.playerScore >= 100:
 		if Global.playerScore >= 100 and Global.adversaireScore>= 100:
 			get_tree().change_scene_to_file("res://Scene/EndScreen/loose_screen.tscn")
+			Global.canRestart = false
 		else :
 			get_tree().change_scene_to_file("res://Scene/EndScreen/winn_scene.tscn")
+			Global.canRestart = false
 		pass
 	
 	if Global.adversaireScore>= 100:
 		if Global.playerScore >= 100 and Global.adversaireScore>= 100:
 			get_tree().change_scene_to_file("res://Scene/EndScreen/loose_screen.tscn")
+			Global.canRestart = false
 		else:
 			get_tree().change_scene_to_file("res://Scene/EndScreen/loose_screen.tscn")
+			Global.canRestart = false
+		pass
+	
+	if Input.is_action_just_pressed("pause"):
+		get_tree().change_scene_to_file("res://Scene/menu/menu.tscn")
+		Global.canRestart = true
 		pass
 
 func matShopSpawn():
@@ -84,11 +95,12 @@ func sell_items():
 	for element in $ItemList.get_children():
 		if !element.ismat:
 			Global.coinIncrement += element.itemScore
-			give_item(element)
+			#give_item(element)
+			#print(element)
 			element.queue_free()
 
 func give_item(item_gived : Area2D):
 	var item = item_gived
-	item_gived.queue_free()
-	return item.itemScore
+	item.queue_free()
+	return item.itemScore / 2
 
