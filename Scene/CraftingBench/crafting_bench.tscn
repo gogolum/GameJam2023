@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf5j02fbfyxq"]
+[gd_scene load_steps=10 format=3 uid="uid://bf5j02fbfyxq"]
 
 [ext_resource type="Script" path="res://Scene/CraftingBench/CraftingBenchArea.gd" id="1_7uo2d"]
 [ext_resource type="Texture2D" uid="uid://jtcttfod6hjc" path="res://Art/Sprites/14-TileSets/Decorations (32x32).png" id="2_2lc40"]
 [ext_resource type="FontFile" uid="uid://cqyiip1ldq5u1" path="res://Art/Minecraft.ttf" id="3_rrvqa"]
+[ext_resource type="AudioStream" uid="uid://db5udmhcw2uhv" path="res://sound/zapsplat_multimedia_button_click_bright_001_92098.mp3" id="4_7fhqs"]
+[ext_resource type="AudioStream" uid="uid://dxt0yp6i5hsme" path="res://sound/zapsplat_industrial_hammer_small_3x_hits_on_rock_60399.mp3" id="5_cds2i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o2l8"]
 texture = ExtResource("2_2lc40")
@@ -111,9 +113,15 @@ position = Vector2(56, 5)
 position = Vector2(91, 5)
 
 [node name="CanCraft" type="Label" parent="."]
-offset_left = 15.0
-offset_top = -14.0
-offset_right = 192.0
-offset_bottom = 9.0
+offset_left = 12.0
+offset_top = 18.0
+offset_right = 189.0
+offset_bottom = 41.0
 scale = Vector2(0.5, 0.5)
 label_settings = SubResource("LabelSettings_8jykq")
+
+[node name="Snapsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7fhqs")
+
+[node name="CraftSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cds2i")
