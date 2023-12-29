@@ -2,14 +2,26 @@ extends Node2D
 
 var matScene: PackedScene = preload("res://Scene/PickUp/pick_up.tscn")
 var inShop = false
-
 func _ready():
 	Global.coin = 500
 	matShopSpawn()
 
+func gen_opponent_advancement():
+	var advancement = [0,0,0,0,0,0,0]
+	for i in range(100):
+		advancement[randi() % 6] += 1
+	return advancement
+	
+var adversaireScoreDay = gen_opponent_advancement()
+
 func _process(delta):
-	if Input.is_action_just_pressed("sell"):
+	if Input.is_action_just_pressed("giveItem"):
+		if $GiftBox.gift == null:
+			$UI.zoomRendu(0,adversaireScoreDay,Global.day)
+		else:
+			$UI.zoomRendu(give_item($GiftBox.gift),adversaireScoreDay,Global.day)
 		sell_items()
+	
 
 func matShopSpawn():
 	for marker in get_tree().get_nodes_in_group("spawnShopMat"):
@@ -33,12 +45,6 @@ func _on_shop_area_area_exited(area):
 		if Global.coin > $Entities/Player.carried.mat_price and !$Entities/Player.carried.isBought:	
 			Global.coin -= $Entities/Player.carried.mat_price
 			$Entities/Player.carried.isBought = true
-
-func gen_opponent_advancement():
-	var advancement = [0,0,0,0,0,0,0]
-	for i in range(100):
-		advancement[randi() % 6] += 1
-	return advancement
 
 		
 
