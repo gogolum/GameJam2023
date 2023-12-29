@@ -21,9 +21,7 @@ func changeStat():
 	var PowerLabel: Label = $PanelContainer/VBoxContainer2/VBoxContainer/PowerLabel
 	QualityLabel.text = Quality
 	TypeLabel.text = Type
-	if Gem != null:
-		GemLabel.text = "of " + Gem
-	if Power != null:
-		PowerLabel.text = "power: " + Power
+	GemLabel.text = "of " + Gem
+	PowerLabel.text = "power: " + Power
 	QualityLabel.add_theme_color_override("font_color", QualityColor)
 
