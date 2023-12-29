@@ -6,6 +6,7 @@ extends Control
 @onready var playerBar: ProgressBar = $CanvasLayer/HBoxContainer/BarPlayer
 @onready var nextDayButon: Button = $CanvasLayer/NextDayButton
 @onready var dayLabel: Label = $CanvasLayer/HBoxContainer/DayLabel
+
 func _ready():
 	$CanvasLayer/ColorRect2.visible = false
 	nextDayButon.visible = false
@@ -14,9 +15,6 @@ func _ready():
 	pass 
 
 
-
-func _process(delta):
-	pass
 
 func changeValue():
 	coinLable.text = " : " + str(Global.coin)
@@ -36,7 +34,8 @@ func zoomRendu(playerScoreDay,adversaireScoreDay,day):
 	day = Global.day
 	Global.playerScore += playerScoreDay
 	Global.adversaireScore += adversaireScoreDay[day] 
-	await  get_tree().create_timer(0.5).timeout
+	await  get_tree().create_timer(1).timeout
+	$CanvasLayer/AudioStreamPlayer22D.play()
 	coinIncrementLabel.visible = true
 	coinIncrementLabel.text = "+ " + str(Global.coinIncrement)
 	await  get_tree().create_timer(0.5).timeout
@@ -51,6 +50,7 @@ func NextDay():
 	$CanvasLayer/HBoxContainer.position.x += 50
 	coinIncrementLabel.visible = false
 	Global.coin += Global.coinIncrement
+	#Global.coin += Global.day * 5
 	Global.day += 1
 	Global.isNextDay = true
 	nextDayButon.visible = false

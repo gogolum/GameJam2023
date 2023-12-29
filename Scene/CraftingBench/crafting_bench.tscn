@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf5j02fbfyxq"]
+[gd_scene load_steps=11 format=3 uid="uid://bf5j02fbfyxq"]
 
 [ext_resource type="Script" path="res://Scene/CraftingBench/CraftingBenchArea.gd" id="1_7uo2d"]
 [ext_resource type="Texture2D" uid="uid://jtcttfod6hjc" path="res://Art/Sprites/14-TileSets/Decorations (32x32).png" id="2_2lc40"]
@@ -77,6 +77,18 @@ sources/0 = SubResource("TileSetAtlasSource_4o2l8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6f31"]
 size = Vector2(110.75, 10)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pklip"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.31
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 217.42
+angular_velocity_max = 1.85
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 10.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_8jykq"]
 font = ExtResource("3_rrvqa")
 
@@ -108,6 +120,15 @@ position = Vector2(24, 5)
 
 [node name="SecondaryPick_Up" type="Marker2D" parent="."]
 position = Vector2(56, 5)
+
+[node name="CraftParticle" type="GPUParticles2D" parent="SecondaryPick_Up"]
+z_index = 2
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_pklip")
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
 
 [node name="TertiaryPick_Up" type="Marker2D" parent="."]
 position = Vector2(91, 5)
