@@ -26,3 +26,6 @@ var adversaireScore = 0:
 var day = 0:
 	set(value):
 		day = value
+var isNextDay = true
+
+var tutoIsActive = false

@@ -5,11 +5,12 @@ extends Control
 @onready var adversaireBar: ProgressBar = $CanvasLayer/HBoxContainer/adversaireBar
 @onready var playerBar: ProgressBar = $CanvasLayer/HBoxContainer/BarPlayer
 @onready var nextDayButon: Button = $CanvasLayer/NextDayButton
-
+@onready var dayLabel: Label = $CanvasLayer/HBoxContainer/DayLabel
 func _ready():
 	$CanvasLayer/ColorRect2.visible = false
 	nextDayButon.visible = false
 	Global.connect("valueChange",changeValue)
+	dayLabel.text = "Day: " + str(Global.day)
 	pass 
 
 
@@ -21,6 +22,7 @@ func changeValue():
 	coinLable.text = " : " + str(Global.coin)
 	adversaireBar.value = Global.adversaireScore
 	playerBar.value = Global.playerScore
+	dayLabel.text = "Day: " + str(Global.day)
 	pass
 
 func zoomRendu(playerScoreDay,adversaireScoreDay,day):
@@ -50,6 +52,7 @@ func NextDay():
 	coinIncrementLabel.visible = false
 	Global.coin += Global.coinIncrement
 	Global.day += 1
+	Global.isNextDay = true
 	nextDayButon.visible = false
 	pass
 
