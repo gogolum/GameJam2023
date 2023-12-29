@@ -1,0 +1,172 @@
+[gd_scene load_steps=17 format=3 uid="uid://q6x7lfy0infj"]
+
+[ext_resource type="Texture2D" uid="uid://dvmd6oo0yxp58" path="res://Art/Sprites/Gipsy spritesheet.png" id="1_pccai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q62xc"]
+atlas = ExtResource("1_pccai")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83x0s"]
+atlas = ExtResource("1_pccai")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bamiv"]
+atlas = ExtResource("1_pccai")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q184"]
+atlas = ExtResource("1_pccai")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6cxa"]
+atlas = ExtResource("1_pccai")
+region = Rect2(320, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snb0l"]
+atlas = ExtResource("1_pccai")
+region = Rect2(400, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oce7"]
+atlas = ExtResource("1_pccai")
+region = Rect2(480, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hpj5"]
+atlas = ExtResource("1_pccai")
+region = Rect2(560, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7308y"]
+atlas = ExtResource("1_pccai")
+region = Rect2(640, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npjik"]
+atlas = ExtResource("1_pccai")
+region = Rect2(720, 160, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6ugi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q62xc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83x0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bamiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q184")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6cxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snb0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oce7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hpj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7308y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npjik")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_um7ss"]
+resource_name = "Idle"
+length = 1.2
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8, 0.933333, 1.06667, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_lc216"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1g2e6"]
+_data = {
+"Idle": SubResource("Animation_um7ss"),
+"RESET": SubResource("Animation_lc216")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3owjg"]
+radius = 105.342
+
+[node name="Geologist" type="Node2D"]
+
+[node name="DetectZone" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DetectZone"]
+sprite_frames = SubResource("SpriteFrames_w6ugi")
+animation = &"Idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DetectZone/AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_1g2e6")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectZone"]
+shape = SubResource("CircleShape2D_3owjg")
+
+[node name="Press space to reroll for 5" type="Label" parent="."]
+offset_left = -52.0
+offset_top = -18.0
+offset_right = 144.0
+offset_bottom = 5.0
+scale = Vector2(0.8, 0.8)
+text = "Press space to reroll for 5"
