@@ -6,6 +6,7 @@ var canCarry = false
 var Carry = false
 var carried : Area2D
 var  changed_scale = false
+var resetSize = false
 
 #constant
 var speed = 1000
@@ -27,21 +28,33 @@ func _process(delta):
 	
 	if  Input.is_action_just_pressed("interact"):
 		Carry = false
-		if canCarry:
+		resetSize = true
+
+	if canCarry and resetSize:
+		if $PickUpDetectArea.get_overlapping_areas()[0].ismat:
 			$PickUpDetectArea.get_overlapping_areas()[0].scale = Vector2(1,1)
-	
+			resetSize = false
+		else:
+			$PickUpDetectArea.get_overlapping_areas()[0].scale = Vector2(4,4)
+			resetSize = false
 	if canCarry == true and Input.is_action_just_pressed("interact"):
 		Carry = true
 	
+	#empecher à l'objet detre porter si il n'etrs pas achetable
 	if Carry:
 		if $PickUpDetectArea.get_overlapping_areas()[0].ismat:
 			if !$PickUpDetectArea.get_overlapping_areas()[0].isBought and $PickUpDetectArea.get_overlapping_areas()[0].mat_price > Global.coin:
 				Carry = false
+	# l'objet est porté
 	if Carry:
 		$PickUpDetectArea.get_overlapping_areas()[0].position = global_position
-		$PickUpDetectArea.get_overlapping_areas()[0].scale = Vector2(0.8,0.8)
+		if $PickUpDetectArea.get_overlapping_areas()[0].ismat:
+			$PickUpDetectArea.get_overlapping_areas()[0].scale = Vector2(0.8,0.8)
+		else:
+			$PickUpDetectArea.get_overlapping_areas()[0].scale = Vector2(3.2,3.2)
 		carried = $PickUpDetectArea.get_overlapping_areas()[0]
 		canCarry = false
+
 
 
 func _physics_process(delta):

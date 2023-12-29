@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ukfdvie77mok"]
+[gd_scene load_steps=18 format=3 uid="uid://ukfdvie77mok"]
 
 [ext_resource type="Script" path="res://Scene/Trader/trader.gd" id="1_3gq52"]
 [ext_resource type="Texture2D" uid="uid://dvmd6oo0yxp58" path="res://Art/Sprites/Gipsy spritesheet.png" id="1_bkvuh"]
@@ -144,17 +144,34 @@ _data = {
 "RESET": SubResource("Animation_lc216")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixcdg"]
+radius = 105.342
+
 [node name="Trader" type="Node2D"]
 script = ExtResource("1_3gq52")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DetectZone" type="Area2D" parent="."]
 collision_layer = 8
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DetectZone"]
 sprite_frames = SubResource("SpriteFrames_2tqwn")
 animation = &"Idle"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/AnimatedSprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DetectZone/AnimatedSprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_1g2e6")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectZone"]
+shape = SubResource("CircleShape2D_ixcdg")
+
+[node name="Press space to reroll for 5" type="Label" parent="."]
+offset_left = -52.0
+offset_top = -18.0
+offset_right = 144.0
+offset_bottom = 5.0
+scale = Vector2(0.8, 0.8)
+text = "Press space to reroll for 5"
+
+[connection signal="body_entered" from="DetectZone" to="." method="_on_detect_zone_body_entered"]
+[connection signal="body_exited" from="DetectZone" to="." method="_on_detect_zone_body_exited"]
