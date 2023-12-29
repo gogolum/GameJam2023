@@ -23,4 +23,4 @@ func changeStat():
 	TypeLabel.text = Type
 	GemLabel.text = "of " + Gem
 	PowerLabel.text = "power: " + Power
-	QualityLabel.add_theme_color_override("font_color", Color(QualityColor))
+	QualityLabel.add_theme_color_override("font_color", QualityColor)
