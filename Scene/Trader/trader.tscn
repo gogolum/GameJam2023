@@ -163,11 +163,11 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="DetectZone"]
 polygon = PackedVector2Array(1, -1, 45, 0, 54, 17, 57, 41, 62, 71, 28, 88, -4, 91, -19, 92, -36, 91, -33, 35, -34, 11, -32, 0)
 
-[node name="Press space to reroll for 5" type="Label" parent="."]
-offset_left = -52.0
-offset_top = -18.0
-offset_right = 144.0
-offset_bottom = 5.0
+[node name="traderlabel" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 12.0
+offset_right = 239.0
+offset_bottom = 35.0
 scale = Vector2(0.8, 0.8)
 theme_override_fonts/font = ExtResource("3_umvpd")
 text = "Press space to reroll for 5"

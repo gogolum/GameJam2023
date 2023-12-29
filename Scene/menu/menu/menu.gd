@@ -16,16 +16,23 @@ func _process(delta):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if  fullScreenState == false:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	
-	if Global.tutoIsActive :
-		print("shishsi")
-		$VBoxContainer/TutoButon.text = "Tutorial : ON"
-	else :
-		$VBoxContainer/TutoButon.text = "Tutorial : OFF"
+	pass
 
 
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://Scene/Main/main_level.tscn")
+	pass # Replace with function body.
+
+
+func _on_tuto_buton_button_down():
+	Global.tutoIsActive = false
+	pass # Replace with function body.
+
+
+func _on_tuto_buton_button_up():
+	Global.tutoIsActive = true
+	pass # Replace with function body.
+
 
 func _on_full_scree_button_pressed():
 	fullScreenState = !fullScreenState
@@ -36,6 +43,3 @@ func _on_restart_buton_pressed():
 	get_tree().change_scene_to_file("res://Scene/Main/main_level.tscn")
 	Global.canRestart
 	pass # Replace with function body.
-
-func _on_tuto_buton_pressed():
-	Global.tutoIsActive = !Global.tutoIsActive

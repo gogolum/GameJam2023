@@ -70,8 +70,9 @@ func craft(primary, secondary, tersiary):
 	item.itemType = primary.matLevel
 	item.gemType = tersiary.matLevel
 	item.frame_counter_item = num[0]
-	item.position = Vector2(200,200)
+	item.position = $SecondaryPick_Up.global_position
 	item.scale = Vector2(4, 4)
+	$SecondaryPick_Up/CraftParticle.restart()
 	$"../ItemList".add_child(item)
 	primary.queue_free()
 	secondary.queue_free()

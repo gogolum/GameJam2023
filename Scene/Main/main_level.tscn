@@ -1497,6 +1497,11 @@ position = Vector2(917, 374)
 
 [node name="Background" type="Node2D" parent="."]
 
+[node name="Camera2D" type="Camera2D" parent="Background"]
+position = Vector2(768, 245)
+scale = Vector2(3, 3)
+zoom = Vector2(1.25, 1.25)
+
 [node name="TileMap" type="TileMap" parent="Background"]
 position = Vector2(0, 31)
 scale = Vector2(4, 4)
@@ -1520,8 +1525,6 @@ scale = Vector2(2.5, 2.5)
 
 [node name="Player" parent="Entities" instance=ExtResource("2_oyxva")]
 scale = Vector2(3, 3)
-
-[node name="Camera2D" type="Camera2D" parent="Entities/Player"]
 
 [node name="UI" parent="." instance=ExtResource("5_m0tf3")]
 
@@ -1580,20 +1583,6 @@ offset_bottom = 131.0
 theme_override_fonts/font = ExtResource("9_2nnim")
 text = "In order to craft you need 3 materials then press E
 They come in three tiers per, and have a random quality when you buy them"
-horizontal_alignment = 1
-
-[node name="Goal_Tut" type="Label" parent="Tutorial"]
-layout_mode = 0
-offset_left = 134.0
-offset_top = -193.0
-offset_right = 738.0
-offset_bottom = -120.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("9_2nnim")
-text = "Marco is a single jeweller from the city, he decided to charm the princess.
-Sadly he isn't alone in this goal and the princess is materialistic
-You will have 7 fierce days to conquer her heart with your charm making
-Good luck Marco !"
 horizontal_alignment = 1
 
 [node name="Materials_Textures" type="Control" parent="Tutorial"]
@@ -1683,6 +1672,20 @@ offset_right = 614.0
 offset_bottom = 244.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("18_6hivh")
+
+[node name="Goal_Tut" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = -66.0
+offset_right = 839.0
+offset_bottom = 7.0
+scale = Vector2(1.8, 1.8)
+theme_override_fonts/font = ExtResource("9_2nnim")
+theme_override_font_sizes/font_size = 0
+text = "Marco is a single jeweller from the city, he decided to charm the princess.
+Sadly he isn't alone in this goal and the princess is materialistic
+You will have 7 fierce days to conquer her heart with your charm making !"
+horizontal_alignment = 1
 
 [connection signal="area_exited" from="Shop/Shop_Area" to="." method="_on_shop_area_area_exited"]
 [connection signal="body_entered" from="Shop/Shop_Area" to="." method="_on_shop_area_body_entered"]

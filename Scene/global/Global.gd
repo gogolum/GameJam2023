@@ -7,9 +7,16 @@ var coin = 0:
 		coin = value
 		valueChange.emit()
 
+
 var coinIncrement = 0:
 	set(value):
-		coinIncrement = value
+		if value < 0 :
+			if Global.coin > value:
+				coinIncrement = value
+			else :
+				coinIncrement = 0
+		else :
+			coinIncrement = value
 		valueChange.emit()
 
 
@@ -29,3 +36,5 @@ var day = 0:
 var isNextDay = true
 
 var tutoIsActive = false
+
+var canRestart = false

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var traderLabel: Label = $"Press space to reroll for 5"
+@onready var traderLabel: Label = $traderlabel
 
 signal rerollShop
 # Called when the node enters the scene tree for the first time.

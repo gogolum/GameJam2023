@@ -14,10 +14,6 @@ func _ready():
 	pass 
 
 
-
-func _process(delta):
-	pass
-
 func changeValue():
 	coinLable.text = " : " + str(Global.coin)
 	adversaireBar.value = Global.adversaireScore

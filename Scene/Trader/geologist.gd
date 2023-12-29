@@ -25,12 +25,12 @@ func getInfoGeo():
 			if overlap[0].ismat and Global.coin >= 5:
 				overlap[0].matpopUpDisplay()
 				Global.coin -= 5
-				print("e")
 
 
 
 func _on_detect_zone_body_entered(body):
 	geolabel.visible = true
-
+	pass
+	
 func _on_detect_zone_body_exited(body):
 	geolabel.visible = false
