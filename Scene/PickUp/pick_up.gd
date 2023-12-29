@@ -72,7 +72,7 @@ func popUpDisplay():
 	popUp.global_position.x += 8
 	if itemQuality >= 0 and itemQuality <= 3:
 		popUp.Quality = "Mediocre"
-		popUp.QualityColor = "GREY"
+		popUp.QualityColor = "GRAY"
 	elif itemQuality > 3 and itemQuality <= 5:
 		popUp.Quality = "Acceptable"
 		popUp.QualityColor = "GREEN"
