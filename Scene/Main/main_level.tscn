@@ -1514,3 +1514,4 @@ scale = Vector2(2.5, 2.5)
 
 [connection signal="area_exited" from="Shop/Shop_Area" to="." method="_on_shop_area_area_exited"]
 [connection signal="body_entered" from="Shop/Shop_Area" to="." method="_on_shop_area_body_entered"]
+[connection signal="rerollShop" from="Entities/Trader" to="." method="_on_trader_reroll_shop"]

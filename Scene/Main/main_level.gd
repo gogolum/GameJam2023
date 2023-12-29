@@ -17,6 +17,11 @@ func matShopSpawn():
 		matShop.position = marker.global_position 
 		$ItemList.add_child(matShop)
 		pass
+func matShopDespawn():
+	for mat in $ItemList.get_children() :
+		if mat.ismat and !mat.isBought:
+			mat.queue_free()
+		pass
 
 
 func _on_shop_area_body_entered(body):
@@ -34,6 +39,15 @@ func gen_opponent_advancement():
 	for i in range(100):
 		advancement[randi() % 6] += 1
 	return advancement
+
+		
+
+
+func _on_trader_reroll_shop():
+	matShopDespawn()
+	matShopSpawn()
+	pass # Replace with function body.
+
 	
 func sell_items():
 	for element in $ItemList.get_children():
@@ -46,3 +60,4 @@ func give_item(item_gived : Area2D):
 	var item = item_gived
 	item_gived.queue_free()
 	return item.itemScore * 3
+
