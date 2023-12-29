@@ -24,13 +24,13 @@ func check_objects():
 	var ter : Area2D
 	objects_on_table = area.get_overlapping_areas()
 	for element in objects_on_table:
-		if element.matType == 1 and prim == null:
+		if element.matType == 1 and prim == null and element.ismat:
 			prim = element
 			element.position = $PrimaryPick_Up.global_position
-		if element.matType == 2 and sec == null:
+		if element.matType == 2 and sec == null and element.ismat:
 			sec = element
 			element.position = $SecondaryPick_Up.global_position
-		if element.matType == 3 and ter == null:
+		if element.matType == 3 and ter == null and element.ismat:
 			ter = element
 			element.position = $TertiaryPick_Up.global_position
 			

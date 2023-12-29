@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://db7tnw8hyendc"]
+[gd_scene load_steps=23 format=3 uid="uid://db7tnw8hyendc"]
 
 [ext_resource type="Script" path="res://Scene/Main/main_level.gd" id="1_g1mfv"]
 [ext_resource type="Texture2D" uid="uid://dgbbji4hl20mr" path="res://Art/Sprites/14-TileSets/Terrain (32x32).png" id="1_jsdwy"]
@@ -7,6 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://dx3h6h2l8ib8g" path="res://Scene/UI/ui.tscn" id="5_m0tf3"]
 [ext_resource type="PackedScene" uid="uid://bf5j02fbfyxq" path="res://Scene/CraftingBench/crafting_bench.tscn" id="6_2rng3"]
 [ext_resource type="PackedScene" uid="uid://ukfdvie77mok" path="res://Scene/Trader/trader.tscn" id="6_m846b"]
+[ext_resource type="PackedScene" uid="uid://skj33exwepaw" path="res://gift_box.tscn" id="8_dcm7w"]
+[ext_resource type="FontFile" uid="uid://cqyiip1ldq5u1" path="res://Art/Minecraft.ttf" id="9_2nnim"]
+[ext_resource type="Texture2D" uid="uid://cmuilh6n3a4qo" path="res://Art/Materials/tile138.png" id="10_draod"]
+[ext_resource type="Texture2D" uid="uid://4q0tipakuyme" path="res://Art/Materials/tile141.png" id="11_3ssep"]
+[ext_resource type="Texture2D" uid="uid://cqtc4r1ygyrxs" path="res://Art/Materials/tile143.png" id="12_lt0tm"]
+[ext_resource type="Texture2D" uid="uid://c4xjpoucvpvg4" path="res://Art/Materials/tile132.png" id="13_t6uqw"]
+[ext_resource type="Texture2D" uid="uid://rcm3vr384oyq" path="res://Art/Materials/tile100.png" id="14_xuxa4"]
+[ext_resource type="Texture2D" uid="uid://dmasyoxua88qp" path="res://Art/Materials/tile116.png" id="15_mc87a"]
+[ext_resource type="Texture2D" uid="uid://dd5rol1cavjen" path="res://Art/Materials/tile081.png" id="16_k5vys"]
+[ext_resource type="Texture2D" uid="uid://jewoymiwim30" path="res://Art/Materials/tile065.png" id="17_m2l5m"]
+[ext_resource type="Texture2D" uid="uid://cquw1ms428uyr" path="res://Art/Materials/tile033.png" id="18_6hivh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7bg0"]
 size = Vector2(601, 552)
@@ -1511,6 +1522,163 @@ scale = Vector2(2.5, 2.5)
 [node name="UI" parent="." instance=ExtResource("5_m0tf3")]
 
 [node name="ItemList" type="Node2D" parent="."]
+
+[node name="GiftBox" parent="." instance=ExtResource("8_dcm7w")]
+position = Vector2(131, 521)
+scale = Vector2(5, 5)
+
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Deposit_Tut" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 599.0
+offset_right = 328.0
+offset_bottom = 634.0
+theme_override_fonts/font = ExtResource("9_2nnim")
+text = "Deposit the item you
+want to give to the princess"
+horizontal_alignment = 1
+
+[node name="Buy_Tut" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 455.0
+offset_right = 1266.0
+offset_bottom = 490.0
+theme_override_fonts/font = ExtResource("9_2nnim")
+text = "Here you can buy any 
+material you want, but you
+ need to have enough coins !"
+horizontal_alignment = 1
+
+[node name="Merchant_Tut" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 82.0
+offset_right = 1421.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("9_2nnim")
+text = "Don't forget to ask the merchant for 
+a restock in exange of a little something"
+horizontal_alignment = 1
+
+[node name="Craft_Tut" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 96.0
+offset_right = 707.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("9_2nnim")
+text = "In order to craft you need 3 materials then press E
+They come in three tiers per, and have a random quality when you buy them"
+horizontal_alignment = 1
+
+[node name="Goal_Tut" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = -193.0
+offset_right = 738.0
+offset_bottom = -120.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("9_2nnim")
+text = "Marco is a single jeweller from the city, he decided to charm the princess.
+Sadly he isn't alone in this goal and the princess is materialistic
+You will have 7 fierce days to conquer her heart with your charm making
+Good luck Marco !"
+horizontal_alignment = 1
+
+[node name="Materials_Textures" type="Control" parent="Tutorial"]
+anchors_preset = 0
+offset_left = 15.0
+offset_top = -44.0
+offset_right = 55.0
+offset_bottom = -4.0
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 174.0
+offset_right = 287.0
+offset_bottom = 238.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_draod")
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 175.0
+offset_right = 316.0
+offset_bottom = 239.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_3ssep")
+
+[node name="TextureRect3" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 173.0
+offset_right = 347.0
+offset_bottom = 237.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_lt0tm")
+
+[node name="TextureRect4" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 178.0
+offset_right = 410.0
+offset_bottom = 242.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_t6uqw")
+
+[node name="TextureRect5" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 178.0
+offset_right = 442.0
+offset_bottom = 242.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_xuxa4")
+
+[node name="TextureRect6" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 179.0
+offset_right = 475.0
+offset_bottom = 243.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_mc87a")
+
+[node name="TextureRect7" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 181.0
+offset_right = 548.0
+offset_bottom = 245.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_k5vys")
+
+[node name="TextureRect8" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 180.0
+offset_right = 583.0
+offset_bottom = 244.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_m2l5m")
+
+[node name="TextureRect9" type="TextureRect" parent="Tutorial/Materials_Textures"]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 180.0
+offset_right = 614.0
+offset_bottom = 244.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_6hivh")
 
 [connection signal="area_exited" from="Shop/Shop_Area" to="." method="_on_shop_area_area_exited"]
 [connection signal="body_entered" from="Shop/Shop_Area" to="." method="_on_shop_area_body_entered"]
