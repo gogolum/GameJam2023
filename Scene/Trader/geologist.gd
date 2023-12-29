@@ -25,6 +25,7 @@ func getInfoGeo():
 			if overlap[0].ismat and Global.coin >= 5:
 				overlap[0].matpopUpDisplay()
 				Global.coin -= 5
+				print("e")
 
 
 
