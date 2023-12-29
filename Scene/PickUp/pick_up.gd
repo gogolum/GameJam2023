@@ -8,7 +8,7 @@ extends Area2D
 # matériaux
 var spriteId: int
 var names_mat = ["Wood","Leather","Fabric","Coal","Iron","Gold","Amethyst","Emerald","Diamond"]
-var mat_list_prices = [3,6,12,6,12,24,12,24,48]
+var mat_list_prices = [3,6,10,6,11,20,10,20,35]
 var mat_price : float
 var matLevel: int 
 var matQuality: int
@@ -53,16 +53,22 @@ func popUpDisplay():
 	popUp.global_position.x += 8
 	if itemQuality >= 0 and itemQuality <= 3:
 		popUp.Quality = "Mediocre"
+		popUp.QualityColor = "GREY"
 	elif itemQuality > 3 and itemQuality <= 5:
 		popUp.Quality = "Acceptable"
+		popUp.QualityColor = "GREEN"
 	elif itemQuality > 5 and itemQuality <= 10:
 		popUp.Quality = "Great"
+		popUp.QualityColor = "BLUE"
 	elif itemQuality > 10 and itemQuality <= 15:
 		popUp.Quality = "Magnificiante"
+		popUp.QualityColor = "DARK_BLUE"
 	elif itemQuality > 15 and itemQuality <= 18:
 		popUp.Quality = "MasterPiece"
+		popUp.QualityColor = "PURPLE"
 	elif itemQuality > 18  and itemQuality <= 20:
-		popUp.Quality = "GOOD"
+		popUp.Quality = "GOD"
+		popUp.QualityColor = "YELLOW"
 	
 	if itemType == 1:
 		popUp.Type = "bracelet"
