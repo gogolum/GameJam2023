@@ -40,6 +40,7 @@ func _process(delta):
 	if canCarry == true and Input.is_action_just_pressed("interact"):
 		Carry = true
 	
+
 	#empecher à l'objet detre porter si il n'etrs pas achetable
 	if Carry:
 		if $PickUpDetectArea.get_overlapping_areas()[0].ismat:
@@ -47,6 +48,15 @@ func _process(delta):
 				Carry = false
 	# l'objet est porté
 	if Carry:
+
+	if Carry and $PickUpDetectArea.get_overlapping_areas() != []:
+		if $PickUpDetectArea.get_overlapping_areas()[0].ismat:
+			if !$PickUpDetectArea.get_overlapping_areas()[0].isBought and $PickUpDetectArea.get_overlapping_areas()[0].mat_price > Global.coin:
+				Carry = false
+		else :
+			pass
+	if Carry and $PickUpDetectArea.get_overlapping_areas() != []:
+
 		$PickUpDetectArea.get_overlapping_areas()[0].position = global_position
 		if $PickUpDetectArea.get_overlapping_areas()[0].ismat:
 			$PickUpDetectArea.get_overlapping_areas()[0].scale = Vector2(0.8,0.8)
@@ -58,6 +68,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	
 	#directions, flip sprite
 	axis.x = Input.get_action_strength("right")-Input.get_action_strength("left")
 	axis.y = Input.get_action_strength("down")-Input.get_action_strength("up")
@@ -73,10 +84,14 @@ func _physics_process(delta):
 		if (!changed_scale):
 			scale.x=-3.0
 			changed_scale=true
+			$PickUpLabel.scale = Vector2(-0.5,0.5)
+			$PickUpLabel.position.x += 40
 	elif Input.is_action_pressed("right"):
 		if (changed_scale):
 			scale.x=-3.0
 			changed_scale=false
+			$PickUpLabel.scale = Vector2(0.5,0.5)
+			$PickUpLabel.position.x -= 40
 	move_and_slide()
 
 
