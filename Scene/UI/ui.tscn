@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dx7y8aq7n6tn8" path="res://Art/Sprites/02-King Pig/Ground (38x28).png" id="4_o5y3k"]
 [ext_resource type="Texture2D" uid="uid://b11vaqsup0yg5" path="res://Art/Sprites/01-King Human/Ground (78x58).png" id="6_k6c3r"]
 [ext_resource type="AudioStream" uid="uid://4u5psjunpjgi" path="res://sound/mixkit-completion-of-a-level-2063.wav" id="7_mfi76"]
+
 [ext_resource type="AudioStream" uid="uid://4tt4o6d2kfqu" path="res://sound/cartoon_wink_magic_sparkle-6896.mp3" id="8_v7a3u"]
+
+[ext_resource type="AudioStream" path="res://sound/cartoon_wink_magic_sparkle-6896.mp3" id="8_v7a3u"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_8tu7n"]
 font = ExtResource("2_t3mti")
