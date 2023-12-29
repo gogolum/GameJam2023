@@ -52,7 +52,7 @@ func _on_trader_reroll_shop():
 func sell_items():
 	for element in $ItemList.get_children():
 		if !element.ismat:
-			Global.coin += element.itemScore * 4
+			Global.coinIncrement += element.itemScore * 4
 			give_item(element)
 			element.queue_free()
 

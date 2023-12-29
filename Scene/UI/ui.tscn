@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx3h6h2l8ib8g"]
+[gd_scene load_steps=14 format=3 uid="uid://dx3h6h2l8ib8g"]
 
 [ext_resource type="Script" path="res://Scene/UI/ui.gd" id="1_jcalw"]
 [ext_resource type="Texture2D" uid="uid://lpeu2n7uonfb" path="res://Art/Sprites/Piece (2).png" id="1_tfqdj"]
@@ -6,9 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://dh1sf8lrvr7fr" path="res://Art/Sprites/princess-removebg-preview.png" id="4_nw6dj"]
 [ext_resource type="Texture2D" uid="uid://dx7y8aq7n6tn8" path="res://Art/Sprites/02-King Pig/Ground (38x28).png" id="4_o5y3k"]
 [ext_resource type="Texture2D" uid="uid://b11vaqsup0yg5" path="res://Art/Sprites/01-King Human/Ground (78x58).png" id="6_k6c3r"]
+[ext_resource type="AudioStream" uid="uid://4u5psjunpjgi" path="res://sound/mixkit-completion-of-a-level-2063.wav" id="7_mfi76"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8tu7n"]
+font = ExtResource("2_t3mti")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ev0ry"]
 font = ExtResource("2_t3mti")
+font_color = Color(0, 0.992157, 0.0705882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqalv"]
 bg_color = Color(0.196078, 0.196078, 0.196078, 1)
@@ -46,6 +51,14 @@ script = ExtResource("1_jcalw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.211765, 0.211765, 0.211765, 0.870588)
+
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -74,6 +87,10 @@ expand_mode = 3
 [node name="Coin" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = ": 500"
+label_settings = SubResource("LabelSettings_8tu7n")
+
+[node name="coinIncrement" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
 label_settings = SubResource("LabelSettings_ev0ry")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
@@ -88,7 +105,7 @@ layout_mode = 2
 texture = ExtResource("4_o5y3k")
 expand_mode = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer"]
+[node name="adversaireBar" type="ProgressBar" parent="CanvasLayer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t3mti")
@@ -101,7 +118,7 @@ layout_mode = 2
 texture = ExtResource("4_nw6dj")
 expand_mode = 3
 
-[node name="BarPlayer2" type="ProgressBar" parent="CanvasLayer/HBoxContainer"]
+[node name="BarPlayer" type="ProgressBar" parent="CanvasLayer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -117,3 +134,17 @@ texture = ExtResource("6_k6c3r")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
+
+[node name="NextDayButton" type="Button" parent="CanvasLayer"]
+offset_left = 700.0
+offset_top = 791.0
+offset_right = 1220.0
+offset_bottom = 919.0
+theme_override_fonts/font = ExtResource("2_t3mti")
+theme_override_font_sizes/font_size = 120
+text = "Next day"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+stream = ExtResource("7_mfi76")
+
+[connection signal="pressed" from="CanvasLayer/NextDayButton" to="." method="_on_button_pressed"]
