@@ -33,7 +33,7 @@ func zoomRendu(playerScoreDay,adversaireScoreDay,day):
 	await  get_tree().create_timer(1).timeout
 	day = Global.day
 	Global.playerScore += playerScoreDay
-	Global.adversaireScore += adversaireScoreDay[day]
+	Global.adversaireScore += adversaireScoreDay[day] 
 	await  get_tree().create_timer(0.5).timeout
 	coinIncrementLabel.visible = true
 	coinIncrementLabel.text = "+ " + str(Global.coinIncrement)

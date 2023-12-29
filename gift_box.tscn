@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://skj33exwepaw"]
+[gd_scene load_steps=7 format=3 uid="uid://dx57dw0abc3yk"]
 
 [ext_resource type="Script" path="res://gift_box.gd" id="1_mx3bd"]
 [ext_resource type="Texture2D" uid="uid://jtcttfod6hjc" path="res://Art/Sprites/14-TileSets/Decorations (32x32).png" id="2_2niqo"]

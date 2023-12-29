@@ -11,6 +11,7 @@ func _ready():
 func _on_area_entered(area):
 	if !area.ismat:
 		candonate = true
+		
 	else:
 		candonate = false
 
