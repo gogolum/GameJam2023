@@ -48,7 +48,6 @@ func _process(delta):
 				Carry = false
 	# l'objet est porté
 	if Carry:
-
 		if Carry and $PickUpDetectArea.get_overlapping_areas() != []:
 			if $PickUpDetectArea.get_overlapping_areas()[0].ismat:
 				if !$PickUpDetectArea.get_overlapping_areas()[0].isBought and $PickUpDetectArea.get_overlapping_areas()[0].mat_price > Global.coin:
