@@ -34,10 +34,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("giveItem") and Global.isNextDay:
 		Global.isNextDay = false
 		if $GiftBox.gift == null:
-			$UI.zoomRendu(0,adversaireScoreDay,Global.day)
+			$UI.zoomRendu(0,adversaireScoreDay,Global.day, sell_items())
 		else:
-			$UI.zoomRendu(give_item($GiftBox.gift),adversaireScoreDay,Global.day)
-			Global.coin -= give_item($GiftBox.gift)
+			$UI.zoomRendu(give_item($GiftBox.gift),adversaireScoreDay,Global.day, sell_items())
 	
 	if Global.playerScore >= 100:
 		if Global.playerScore >= 100 and Global.adversaireScore>= 100:
@@ -92,12 +91,12 @@ func _on_trader_reroll_shop():
 
 	
 func sell_items():
+	var total_price = 0
 	for element in $ItemList.get_children():
 		if !element.ismat:
-			Global.coinIncrement += element.itemScore
-			#give_item(element)
-			#print(element)
+			total_price += element.itemScore
 			element.queue_free()
+	return total_price
 
 func give_item(item_gived : Area2D):
 	var item = item_gived

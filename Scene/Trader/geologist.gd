@@ -1,7 +1,6 @@
 extends Node2D
 
-@onready var geolabel = $Geologist_Label
-@onready var quallabel = $Geologist_Quality_Label
+@onready var geolabel : Label = $Geologist_Label
 @onready var detectionzone = $DetectZoneMat
 
 # Called when the node enters the scene tree for the first time.
@@ -12,8 +11,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("craft"):
+	if geolabel.visible and Input.is_action_just_pressed("craft"):
 		getInfoGeo()
+		Global.coin -= 5
 
 func getInfoGeo():
 	var overlap = detectionzone.get_overlapping_areas()
@@ -30,7 +30,7 @@ func getInfoGeo():
 
 func _on_detect_zone_body_entered(body):
 	geolabel.visible = true
-	pass
+	print("yesmùan")
 	
 func _on_detect_zone_body_exited(body):
 	geolabel.visible = false

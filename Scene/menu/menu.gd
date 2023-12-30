@@ -1,6 +1,7 @@
 extends Control
 
 var fullScreenState: bool = false
+const main_scene = preload("res://Scene/Main/main_level.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -34,8 +35,11 @@ func _on_full_scree_button_pressed():
 
 func _on_restart_buton_pressed():
 	get_tree().change_scene_to_file("res://Scene/Main/main_level.tscn")
-	Global.canRestart
-	pass # Replace with function body.
+	Global.canRestart = false
 
 func _on_tuto_buton_pressed():
 	Global.tutoIsActive = !Global.tutoIsActive
+
+
+func _on_exit_buton_pressed():
+	get_tree().quit()

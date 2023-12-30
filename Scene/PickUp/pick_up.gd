@@ -39,13 +39,17 @@ func _ready():
 		matsprite.frame = spriteId
 		itemsprite.visible = false
 		matsprite.visible = true
-		$Price.text = str(mat_price)
+		$Price.text = str(mat_price) + "$"
 	if ismat == false:
 		$itemSprite2D2.visible = true
 		$matSprite2D.visible = false
 		$itemSprite2D2.frame = frame_counter_item
 	#$Name.text = name
 	#$quality.text = str(itemLevel) + "   " + str(itemQuality)
+
+func _process(delta):
+	if isBought == true:
+		$Price.visible = false
 
 func matpopUpDisplay():
 	var popUp = popUpScene.instantiate()

@@ -21,23 +21,35 @@ func changeValue():
 	dayLabel.text = "Day: " + str(Global.day)
 	pass
 
-func zoomRendu(playerScoreDay,adversaireScoreDay,day):
+func zoomRendu(playerScoreDay,adversaireScoreDay,day, increment):
 	$CanvasLayer/ColorRect2.visible = true
 	$CanvasLayer/MarginContainer/HBoxContainer.visible = true
 	$CanvasLayer/MarginContainer.visible = true
 	$CanvasLayer/HBoxContainer.position.y += 400
 	$CanvasLayer/HBoxContainer.position.x -= 50
 	$CanvasLayer/AudioStreamPlayer2D.play()
+	
+	if increment == null:
+		increment = 0
+		
 	await  get_tree().create_timer(1).timeout
-	day = Global.day
+
+	increment -= (playerScoreDay * 2)
+	increment += (Global.day + 1) * 10
+	
 	Global.playerScore += playerScoreDay
 	Global.adversaireScore += adversaireScoreDay[day] 
+	
 	await  get_tree().create_timer(0.5).timeout
+	
 	coinIncrementLabel.visible = true
-	coinIncrementLabel.text = "+ " + str(Global.coinIncrement)
+	coinIncrementLabel.text = "+ " + str(increment)
+	Global.coin += increment
+	
 	await  get_tree().create_timer(0.5).timeout
+	
 	nextDayButon.visible = true
-	pass
+	
 
 func NextDay():
 	$CanvasLayer/ColorRect2.visible = false
@@ -47,8 +59,8 @@ func NextDay():
 	$CanvasLayer/HBoxContainer.position.x += 50
 	coinIncrementLabel.visible = false
 	Global.coin += Global.coinIncrement
-	Global.day += 1
 	Global.isNextDay = true
+	Global.day += 1
 	nextDayButon.visible = false
 	pass
 

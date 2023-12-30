@@ -168,7 +168,7 @@ offset_left = 31.0
 offset_top = 12.0
 offset_right = 239.0
 offset_bottom = 35.0
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.6, 0.6)
 theme_override_fonts/font = ExtResource("3_umvpd")
 text = "Press space to reroll for 5"
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=44 format=3 uid="uid://bskbb0eymhkb6"]
+[gd_scene load_steps=45 format=3 uid="uid://bskbb0eymhkb6"]
 
 [ext_resource type="Script" path="res://Scene/PickUp/pick_up.gd" id="1_01j88"]
 [ext_resource type="Texture2D" uid="uid://7nyfob36eopx" path="res://Art/Materials/64x64.png" id="1_pdywt"]
 [ext_resource type="Texture2D" uid="uid://7remjupscapi" path="res://Art/Materials/bracelets_spritesheet.png" id="3_pudg4"]
 [ext_resource type="Texture2D" uid="uid://cq8fe44knb0m3" path="res://Art/Materials/necklace_spritesheet.png" id="4_ohoqa"]
 [ext_resource type="Texture2D" uid="uid://bauu103dk6k4j" path="res://Art/Materials/rings_spritesheett.png" id="5_0s54i"]
+[ext_resource type="FontFile" uid="uid://cqyiip1ldq5u1" path="res://Art/Minecraft.ttf" id="6_lnamf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqwnx"]
 atlas = ExtResource("1_pdywt")
@@ -303,5 +304,8 @@ offset_right = 20.0
 offset_bottom = -47.0
 
 [node name="Price" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 5.0
+offset_top = 16.0
+offset_right = 45.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("6_lnamf")
