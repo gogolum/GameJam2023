@@ -7,7 +7,6 @@ var coin = 0:
 		coin = value
 		valueChange.emit()
 
-
 var coinIncrement = 0:
 	set(value):
 		if value < 0 :

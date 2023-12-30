@@ -7,14 +7,13 @@ func _ready():
 	#initialisation
 	Global.valueChange.emit()
 	if Global.canRestart == false:
-		Global.coin = 250 
+		Global.coin = 100                                                                                                              
 		Global.coinIncrement = 0
 		Global.playerScore = 0
 		Global.adversaireScore = 0
 		Global.day = 0
 		Global.isNextDay = true
 	matShopSpawn()
-	
 
 func gen_opponent_advancement():
 	var advancement = [0,0,0,0,0,0,0]
@@ -40,22 +39,17 @@ func _process(delta):
 	
 	if Global.playerScore >= 100:
 		if Global.playerScore >= 100 and Global.adversaireScore>= 100:
-			get_tree().change_scene_to_file("res://Scene/EndScreen/loose_screen.tscn")
+			get_tree().change_scene_to_file("res://Scene/EndScreen/winn_scene.tscn")
 			Global.canRestart = false
 		else :
 			get_tree().change_scene_to_file("res://Scene/EndScreen/winn_scene.tscn")
 			Global.canRestart = false
 		pass
 	
-	if Global.adversaireScore>= 100:
-		if Global.playerScore >= 100 and Global.adversaireScore>= 100:
+	elif Global.adversaireScore>= 100 and Global.playerScore < 100:
 			get_tree().change_scene_to_file("res://Scene/EndScreen/loose_screen.tscn")
 			Global.canRestart = false
-		else:
-			get_tree().change_scene_to_file("res://Scene/EndScreen/loose_screen.tscn")
-			Global.canRestart = false
-		pass
-	
+
 	if Input.is_action_just_pressed("pause"):
 		get_tree().change_scene_to_file("res://Scene/menu/menu.tscn")
 		Global.canRestart = true
@@ -102,4 +96,16 @@ func give_item(item_gived : Area2D):
 	var item = item_gived
 	item.queue_free()
 	return item.itemScore / 2
+	
+#func save_entities():
+	#var entities = $ItemList.get_children()
+	#var entities_saved = []
+	#for element in entities:
+		#if element.ismat:
+			#if !element.isBought:
+				#entities_saved.append(element)
+		#else:
+			#entities_saved.append(element)
+	#return entities_saved
+		
 

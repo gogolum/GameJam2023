@@ -15,12 +15,13 @@ func _on_area_entered(area):
 	if !area.ismat:
 		candonate = true
 		gift = area
-		print(area)
-	else : 
-		false
+
+func _on_area_exited(area):
+	if !area.ismat:
+		candonate = false
+		gift = null
 
 func interact():
 	if gift != null and len(get_overlapping_areas()) == 1:
 		gift.position = $Snap_Point.global_position
 		gift.position.y
-	
